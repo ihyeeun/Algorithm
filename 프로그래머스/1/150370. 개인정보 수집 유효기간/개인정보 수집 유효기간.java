@@ -47,18 +47,13 @@ class Solution {
                 }
             }
             else --day;
-            month += period;
-            if(month > 12){
-                while(month > 12){
-                    ++year;
-                    month -= 12;
-                }
-            }
-            // if((month = month + period) > 12){
-            //     System.out.println("MONTH : "+month);
-            //     year += month / 12;
-            //     month = month % 12; 
-            // }
+
+            int totalMonths = (month - 1) + period;
+            // 연도는 totalMonths를 12로 나눈 몫만큼 증가합니다.
+            year += totalMonths / 12;
+            // 월은 totalMonths를 12로 나눈 나머지에 다시 1을 더해서 1부터 12 범위로 맞춥니다.
+            month = (totalMonths % 12) + 1;
+            
             //month가 1인 경우도 위에처럼 계산을 해줘야하는데 안했구나.
             System.out.println("이것이 더한 거 아닌가여 ? "+ year + " " + month + " " + day);
             
